@@ -1,0 +1,75 @@
+<ion-content class="container">
+  <ion-title class="title">Current Weather Information</ion-title>
+  <div class="search">
+    <ion-label for="meteo-searchbar">Location: </ion-label>
+    <div class="input-section">
+      <ion-input class="input" color="primary"
+        id="meteo-searchbar" #location
+        placeholder="Search" autofocus="true"
+        ></ion-input>
+      <ion-button 
+        color="primary"
+        (click)="getCurrentWeather(location.value)"
+      >Search</ion-button>
+    </div>
+
+    <ion-card class="info-card" *ngIf="currentWeather">
+      <ion-card-header>
+        Current Weather in <ion-text color="secondary">{{currentWeather.location.name}}</ion-text>
+      </ion-card-header>
+      <ion-item-group>
+
+        <ion-item-divider>
+          <ion-label>Location:</ion-label>
+        </ion-item-divider>
+        <ion-item>
+          <ion-label>Country:</ion-label>
+          <ion-text>{{currentWeather.location.country}}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label>Region:</ion-label>
+          <ion-text>{{currentWeather.location.region}}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label>Local Time:</ion-label>
+          <ion-text>{{currentWeather.location.localtime}}</ion-text>
+        </ion-item>
+
+        <ion-item-divider>
+          <ion-label>Current:</ion-label>
+        </ion-item-divider>
+        <ion-item>
+          <ion-label>Last Updated:</ion-label>
+          <ion-text>{{currentWeather.current.last_updated}}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label>Condition:</ion-label>
+          <ion-text color="secondary">{{currentWeather.current.condition.text}}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label>Temperature:</ion-label>
+          <ion-text>{{currentWeather.current.temp_c}}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label>Wind:</ion-label>
+          <ion-text>
+            {{currentWeather.current.wind_kph}}/
+            {{currentWeather.current.wind_degree}}º
+          </ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label>Pressure:</ion-label>
+          <ion-text>{{currentWeather.current.pressure_mb}}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label>Humidity:</ion-label>
+          <ion-text>{{currentWeather.current.humidity}}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label>Visibility:</ion-label>
+          <ion-text>{{currentWeather.current.vis_km}}</ion-text>
+        </ion-item>
+      </ion-item-group>
+    </ion-card>
+  </div>
+</ion-content>

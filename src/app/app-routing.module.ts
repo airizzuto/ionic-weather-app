@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { MeteoInfoComponent } from './meteo-info/meteo-info.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  }
+  { path: '', redirectTo: '/meteo', pathMatch: 'full' },
+  { path: 'meteo', component: MeteoInfoComponent }
 ];
 @NgModule({
   imports: [
