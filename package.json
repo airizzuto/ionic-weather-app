@@ -1,8 +1,8 @@
 {
-  "name": "meteo-app",
-  "version": "0.0.1",
+  "name": "ionic-weather-app",
+  "version": "0.1.0",
   "author": "Agustín Ignacio Rizzuto",
-  "homepage": "https://ionicframework.com/",
+  "homepage": "wip",
   "scripts": {
     "ng": "ng",
     "config": "ts-node ./src/assets/scripts/setEnvs.ts",
@@ -67,5 +67,5 @@
     "typescript": "~4.4.4",
     "yargs": "^17.3.1"
   },
-  "description": "An Ionic project"
+  "description": "A small weather application to learn ionic framework with angular"
 }
