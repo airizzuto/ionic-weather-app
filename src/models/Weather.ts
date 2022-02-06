@@ -2,11 +2,6 @@
 
 import { Url } from 'url';
 
-interface Coordinates {
-  lat: number;
-  lon: number;
-}
-
 interface Location {
   name: string;
   region: string;

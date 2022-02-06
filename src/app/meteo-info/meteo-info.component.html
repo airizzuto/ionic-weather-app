@@ -4,17 +4,17 @@
     <ion-label for="meteo-searchbar">Location: </ion-label>
     <div class="input-section">
       <ion-input class="input" color="primary"
-        id="meteo-searchbar" #location
+        id="meteo-searchbar" [ngModel]="location"
         placeholder="Search" autofocus="true"
         ></ion-input>
       <ion-button 
         color="primary"
-        (click)="getCurrentWeather(location.value)"
+        (click)="getCurrentWeather()"
       >Search</ion-button>
     </div>
 
     <ion-card class="info-card" *ngIf="currentWeather">
-      <ion-card-header>
+      <ion-card-header style="text-align: center;">
         Current Weather in <ion-text color="secondary">{{currentWeather.location.name}}</ion-text>
       </ion-card-header>
       <ion-item-group>

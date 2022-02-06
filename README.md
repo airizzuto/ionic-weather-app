@@ -1,4 +1,4 @@
-# Ionic Weather App v0.1.0
+# Ionic Weather App v0.1.12
 
 ## Description
 
