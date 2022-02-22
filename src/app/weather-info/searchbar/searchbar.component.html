@@ -1,0 +1,38 @@
+<div class="search-container">
+  <ion-item class="searchbar">
+    <ion-label for="location-input">Location: </ion-label>
+    <ion-input class="searcbhar-input"
+      id="location-input"
+      autofocus="true"
+      placeholder="Search Location"
+      [value]="initialLocation"
+      [ngModel]="newLocation"
+      color="primary"
+    >
+    </ion-input>
+  </ion-item>
+
+  <ion-button class="search-button"
+    type="button"
+    (click)="searchClicked()"
+    color="primary"
+  >
+    Search
+  </ion-button>
+</div>
+
+<!--
+<ion-content class="search">
+  <ion-label for="meteo-searchbar">Location: </ion-label>
+  <ion-content class="input-section">
+    <ion-input class="input" color="primary"
+      id="meteo-searchbar" [ngModel]="location"
+      placeholder="Search" autofocus="true"
+    ></ion-input>
+    <ion-button
+      color="primary"
+      (click)="getCurrentWeather()"
+    >Search
+    </ion-button>
+</ion-content> -->
+
