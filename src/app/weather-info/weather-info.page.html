@@ -1,0 +1,6 @@
+<ion-content class="container">
+  <ion-title class="title">Current Weather Information</ion-title>
+  <app-searchbar [initialLocation]="location" (searchEvent)="searchWeather($event)"></app-searchbar>
+  <app-current-weather [currentWeather]="currentWeather"></app-current-weather>
+</ion-content>
+
