@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { MeteoInfoComponent } from './meteo-info.component';
+import { CurrentWeatherComponent } from './current-weather.component';
 
-describe('MeteoInfoComponent', () => {
-  let component: MeteoInfoComponent;
-  let fixture: ComponentFixture<MeteoInfoComponent>;
+describe('CurrentWeatherComponent', () => {
+  let component: CurrentWeatherComponent;
+  let fixture: ComponentFixture<CurrentWeatherComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ MeteoInfoComponent ],
+      declarations: [ CurrentWeatherComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(MeteoInfoComponent);
+    fixture = TestBed.createComponent(CurrentWeatherComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
