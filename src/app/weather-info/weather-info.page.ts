@@ -2,7 +2,8 @@ import { Component, NgZone, OnInit } from '@angular/core';
 import { Capacitor } from '@capacitor/core';
 import { Geolocation } from '@capacitor/geolocation';
 import { CurrentWeather } from 'src/models/Weather';
-import { MeteoService } from '../../services/meteo.service';
+import { ProviderService } from 'src/services/provider.service';
+import { WeatherService } from 'src/services/weather.service';
 
 @Component({
   selector: 'app-weather-info',
@@ -14,9 +15,10 @@ export class WeatherInfoPage implements OnInit {
   location: string;
 
   constructor(
-    private meteoService: MeteoService,
+    private serviceProvider: ProviderService,
     private zone: NgZone
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.getCurrentCoordinates()
@@ -34,8 +36,10 @@ export class WeatherInfoPage implements OnInit {
   getCurrentWeather(): void {
     if (!this.location) { return; }
 
-    this.meteoService.getCurrentWeather(this.location)
-      .subscribe(weather => this.currentWeather = weather);
+    this.serviceProvider
+      .weatherProvider()
+      .getCurrentWeather(this.location)
+        .subscribe(weather => this.currentWeather = weather);
   }
 
   async requestPermissions() {

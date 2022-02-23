@@ -7,7 +7,7 @@ import { CurrentWeather } from 'src/models/Weather';
 @Injectable({
   providedIn: 'root'
 })
-export class MeteoService {
+export class WeatherService {
   httpOptions = {
     // eslint-disable-next-line @typescript-eslint/naming-convention
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
