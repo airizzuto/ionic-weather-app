@@ -1,9 +1,10 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { Capacitor } from '@capacitor/core';
 import { Geolocation } from '@capacitor/geolocation';
+import { Unit } from 'src/models/Units';
 import { CurrentWeather } from 'src/models/Weather';
 import { ProviderService } from 'src/services/provider.service';
-import { WeatherService } from 'src/services/weather.service';
+import { UnitState } from 'src/services/states/unit-state.service';
 
 @Component({
   selector: 'app-weather-info',
@@ -12,12 +13,15 @@ import { WeatherService } from 'src/services/weather.service';
 })
 export class WeatherInfoPage implements OnInit {
   currentWeather: CurrentWeather | undefined;
+  unit: Unit = 'metric';
   location: string;
 
   constructor(
+    public unitState: UnitState,
     private serviceProvider: ProviderService,
     private zone: NgZone
   ) {
+    this.unit = unitState.state;
   }
 
   ngOnInit() {
@@ -38,7 +42,7 @@ export class WeatherInfoPage implements OnInit {
 
     this.serviceProvider
       .weatherProvider()
-      .getCurrentWeather(this.location)
+      .getCurrentWeather(this.location, this.unit)
         .subscribe(weather => this.currentWeather = weather);
   }
 

@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { CurrentWeather } from 'src/models/Weather';
+import { Unit } from 'src/models/Units';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,12 @@ export class WeatherService {
 
   constructor(private http: HttpClient) { }
 
-  getCurrentWeather(location: string): Observable<CurrentWeather> {
-    const url = this.API_BASE_URL + `&q=${location}&aqi=no`;
+  getCurrentWeather(location: string, unit?: Unit): Observable<CurrentWeather> {
+    const locationQuery = `&q=${location}`;
+    const unitQuery = `&units=${unit}`;
+
+    const url = this.API_BASE_URL + locationQuery + `&aqi=no` + unitQuery;
+
     return this.http.get<CurrentWeather>(url);
   }
 }
