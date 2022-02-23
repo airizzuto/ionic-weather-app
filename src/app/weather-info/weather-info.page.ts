@@ -26,16 +26,15 @@ export class WeatherInfoPage implements OnInit {
   }
 
   searchWeather(newLocation: string) {
-    this.location = newLocation;
+    this.location = newLocation.trim();
 
     this.getCurrentWeather();
   }
 
   getCurrentWeather(): void {
-    const location = this.location.trim();
-    if (!location) { return; }
+    if (!this.location) { return; }
 
-    this.meteoService.getCurrentWeather(location)
+    this.meteoService.getCurrentWeather(this.location)
       .subscribe(weather => this.currentWeather = weather);
   }
 
