@@ -1,6 +1,6 @@
-<ion-card class="info-card" *ngIf="currentWeather">
+<ion-card class="info-card" *ngIf="weather">
   <ion-card-header style="text-align: center;">
-    Current Weather in <ion-text color="secondary">{{currentWeather.location.name}}</ion-text>
+    Current Weather in <ion-text color="secondary">{{weather.location.name}}</ion-text>
   </ion-card-header>
 
   <ion-item-group>
@@ -9,15 +9,15 @@
     </ion-item-divider>
     <ion-item>
       <ion-label>Country:</ion-label>
-      <ion-text>{{currentWeather.location.country}}</ion-text>
+      <ion-text>{{weather.location.country}}</ion-text>
     </ion-item>
     <ion-item>
       <ion-label>Region:</ion-label>
-      <ion-text>{{currentWeather.location.region}}</ion-text>
+      <ion-text>{{weather.location.region}}</ion-text>
     </ion-item>
     <ion-item>
       <ion-label>Local Time:</ion-label>
-      <ion-text>{{currentWeather.location.localtime}}</ion-text>
+      <ion-text>{{weather.location.localtime}}</ion-text>
     </ion-item>
 
     <ion-item-divider>
@@ -25,34 +25,55 @@
     </ion-item-divider>
     <ion-item>
       <ion-label>Last Updated:</ion-label>
-      <ion-text>{{currentWeather.current.last_updated}}</ion-text>
+      <ion-text>{{weather.current.last_updated}}</ion-text>
     </ion-item>
     <ion-item>
       <ion-label>Condition:</ion-label>
-      <ion-text color="secondary">{{currentWeather.current.condition.text}}</ion-text>
+      <ion-text color="secondary">{{weather.current.condition.text}}</ion-text>
     </ion-item>
     <ion-item>
       <ion-label>Temperature:</ion-label>
-      <ion-text>{{currentWeather.current.temp_c}}</ion-text>
+      <ion-text>
+        {{
+          (unit === "metric")
+          ? weather.current.temp_c
+          : weather.current.temp_f
+        }}</ion-text>
     </ion-item>
     <ion-item>
       <ion-label>Wind:</ion-label>
       <ion-text>
-        {{currentWeather.current.wind_kph}}/
-        {{currentWeather.current.wind_degree}}º
+        {{
+          (unit === "metric")
+          ? weather.current.wind_kph
+          : weather.current.wind_mph
+        }}/
+        {{weather.current.wind_degree}}º
       </ion-text>
     </ion-item>
     <ion-item>
       <ion-label>Pressure:</ion-label>
-      <ion-text>{{currentWeather.current.pressure_mb}}</ion-text>
+      <ion-text>
+        {{
+          (unit === "metric")
+          ? weather.current.pressure_mb
+          : weather.current.pressure_in
+        }}
+      </ion-text>
     </ion-item>
     <ion-item>
       <ion-label>Humidity:</ion-label>
-      <ion-text>{{currentWeather.current.humidity}}</ion-text>
+      <ion-text>{{weather.current.humidity}}</ion-text>
     </ion-item>
     <ion-item>
       <ion-label>Visibility:</ion-label>
-      <ion-text>{{currentWeather.current.vis_km}}</ion-text>
+      <ion-text>
+        {{
+          (unit === "metric")
+          ? weather.current.vis_km
+          : weather.current.vis_miles
+        }}
+      </ion-text>
     </ion-item>
   </ion-item-group>
 </ion-card>

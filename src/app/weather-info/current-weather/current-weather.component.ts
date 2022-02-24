@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CurrentWeather } from 'src/models/Weather';
+import { Unit } from 'src/models/Units';
+import { CurrentWeatherV1 } from 'src/models/Weather';
 
 @Component({
   selector: 'app-current-weather',
@@ -7,7 +8,8 @@ import { CurrentWeather } from 'src/models/Weather';
   styleUrls: ['./current-weather.component.scss'],
 })
 export class CurrentWeatherComponent implements OnInit {
-  @Input() currentWeather: CurrentWeather;
+  @Input() weather: CurrentWeatherV1;
+  @Input() unit: Unit;
 
   constructor() { }
 

@@ -2,9 +2,8 @@ import { Component, NgZone, OnInit } from '@angular/core';
 import { Capacitor } from '@capacitor/core';
 import { Geolocation } from '@capacitor/geolocation';
 import { Unit } from 'src/models/Units';
-import { CurrentWeather } from 'src/models/Weather';
+import { CurrentWeatherV1 } from 'src/models/Weather';
 import { ProviderService } from 'src/services/provider.service';
-import { UnitState } from 'src/services/states/unit-state.service';
 
 @Component({
   selector: 'app-weather-info',
@@ -12,23 +11,24 @@ import { UnitState } from 'src/services/states/unit-state.service';
   styleUrls: ['./weather-info.page.scss'],
 })
 export class WeatherInfoPage implements OnInit {
-  currentWeather: CurrentWeather | undefined;
+  currentWeather: CurrentWeatherV1 | undefined;
   unit: Unit = 'metric';
   location: string;
 
   constructor(
-    public unitState: UnitState,
     private serviceProvider: ProviderService,
     private zone: NgZone
-  ) {
-    this.unit = unitState.state;
-  }
+  ) { }
 
   ngOnInit() {
     this.getCurrentCoordinates()
       .then(_ => {
         this.getCurrentWeather();
       }).catch(error => console.log(error));
+  }
+
+  toggleUnit(newUnit: Unit) {
+    this.unit = newUnit;
   }
 
   searchWeather(newLocation: string) {

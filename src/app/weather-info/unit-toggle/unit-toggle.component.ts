@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { UnitState } from 'src/services/states/unit-state.service';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Unit } from 'src/models/Units';
 
 @Component({
   selector: 'app-unit-toggle',
@@ -8,11 +8,13 @@ import { UnitState } from 'src/services/states/unit-state.service';
 })
 export class UnitToggleComponent implements OnInit {
 
-  constructor(public unitState: UnitState) { }
+  @Output() switchUnitEvent = new EventEmitter<Unit>();
+
+  constructor() { }
 
   ngOnInit() {}
 
   unitToggled(ev: any) {
-    this.unitState.switchState(ev);
+    this.switchUnitEvent.emit(ev);
   }
 }

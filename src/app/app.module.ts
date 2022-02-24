@@ -9,16 +9,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { WeatherInfoPageModule } from './weather-info/weather-info.module';
-import { SearchbarComponent } from './weather-info/searchbar/searchbar.component';
-import { CurrentWeatherComponent } from './weather-info/current-weather/current-weather.component';
-import { UnitToggleComponent } from './header/unit-toggle/unit-toggle.component';
-import { UnitState } from 'src/services/states/unit-state.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    UnitToggleComponent
   ],
   entryComponents: [],
   imports: [
@@ -29,8 +23,7 @@ import { UnitState } from 'src/services/states/unit-state.service';
     WeatherInfoPageModule
   ],
   providers: [
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    UnitState,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent],
 })
