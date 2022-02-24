@@ -51,6 +51,16 @@
         {{weather.current.wind_degree}}º
       </ion-text>
     </ion-item>
+    <ion-item *ngIf="weather.current.gust_kph || weather.current.gust_mph">
+      <ion-label>Wind Gust:</ion-label>
+      <ion-text>
+        {{
+          (unit === "metric")
+          ? weather.current.gust_kph
+          : weather.current.gust_mph
+        }}/
+      </ion-text>
+    </ion-item>
     <ion-item>
       <ion-label>Pressure:</ion-label>
       <ion-text>

@@ -11,6 +11,7 @@ import { ProviderService } from 'src/services/provider.service';
   styleUrls: ['./weather-info.page.scss'],
 })
 export class WeatherInfoPage implements OnInit {
+  title = 'Current';
   currentWeather: CurrentWeatherV1 | undefined;
   unit: Unit = 'metric';
   location: string;

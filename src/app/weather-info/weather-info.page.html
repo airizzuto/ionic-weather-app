@@ -1,5 +1,7 @@
 <ion-content class="container">
-  <app-header></app-header>
+  <app-header
+    [title]="title"
+  ></app-header>
 
   <app-unit-toggle
     (switchUnitEvent)="toggleUnit($event)"
@@ -7,7 +9,10 @@
 
   <ion-title class="title">Current Weather Information</ion-title>
 
-  <app-searchbar [initialLocation]="location" (searchEvent)="searchWeather($event)"></app-searchbar>
+  <app-searchbar
+    [initialLocation]="location"
+    (searchEvent)="searchWeather($event)"
+  ></app-searchbar>
 
   <app-current-weather
     [weather]="currentWeather"
