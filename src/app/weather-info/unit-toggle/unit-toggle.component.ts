@@ -15,6 +15,6 @@ export class UnitToggleComponent implements OnInit {
   ngOnInit() {}
 
   unitToggled(ev: any) {
-    this.switchUnitEvent.emit(ev);
+    this.switchUnitEvent.emit(ev.target.value);
   }
 }

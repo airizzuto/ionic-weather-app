@@ -1,4 +1,4 @@
-import { Component, NgZone, OnInit } from '@angular/core';
+import { Component, EventEmitter, NgZone, OnInit, Output } from '@angular/core';
 import { Capacitor } from '@capacitor/core';
 import { Geolocation } from '@capacitor/geolocation';
 import { Unit } from 'src/models/Units';
@@ -29,10 +29,12 @@ export class WeatherInfoPage implements OnInit {
   }
 
   toggleUnit(newUnit: Unit) {
+    console.log('Unit toggle: ', newUnit);
+
     this.unit = newUnit;
   }
 
-  searchWeather(newLocation: string) {
+  searchLocationWeather(newLocation: string) {
     this.location = newLocation.trim();
 
     this.getCurrentWeather();
@@ -43,7 +45,7 @@ export class WeatherInfoPage implements OnInit {
 
     this.serviceProvider
       .weatherProvider()
-      .getCurrentWeather(this.location, this.unit)
+      .getCurrent(this.location, this.unit)
         .subscribe(weather => this.currentWeather = weather);
   }
 

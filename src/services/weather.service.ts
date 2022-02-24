@@ -19,7 +19,7 @@ export class WeatherService {
 
   constructor(private http: HttpClient) { }
 
-  getCurrentWeather(location: string, unit?: Unit): Observable<CurrentWeatherV1> {
+  getCurrent(location: string, unit?: Unit): Observable<CurrentWeatherV1> {
     const locationQuery = `&q=${location}`;
 
     const url = this.API_BASE_URL + locationQuery + `&aqi=no`;
@@ -27,7 +27,7 @@ export class WeatherService {
     return this.http.get<CurrentWeatherV1>(url);
   }
 
-  getCurrentWeatherV2(location: string, unit?: Unit): Observable<CurrentWeatherV2> {
+  getCurrentV2(location: string, unit?: Unit): Observable<CurrentWeatherV2> {
     const locationQuery = `&q=${location}`;
     const unitQuery = `&units=${unit}`;
 

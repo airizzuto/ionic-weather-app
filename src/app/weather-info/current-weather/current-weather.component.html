@@ -36,8 +36,8 @@
       <ion-text>
         {{
           (unit === "metric")
-          ? weather.current.temp_c
-          : weather.current.temp_f
+          ? weather.current.temp_c + 'ºC'
+          : weather.current.temp_f + 'ºF'
         }}</ion-text>
     </ion-item>
     <ion-item>
@@ -45,8 +45,8 @@
       <ion-text>
         {{
           (unit === "metric")
-          ? weather.current.wind_kph
-          : weather.current.wind_mph
+          ? weather.current.wind_kph + "kph"
+          : weather.current.wind_mph + "mph"
         }}/
         {{weather.current.wind_degree}}º
       </ion-text>
@@ -56,9 +56,9 @@
       <ion-text>
         {{
           (unit === "metric")
-          ? weather.current.gust_kph
-          : weather.current.gust_mph
-        }}/
+          ? weather.current.gust_kph + "kph"
+          : weather.current.gust_mph + "mph"
+        }}
       </ion-text>
     </ion-item>
     <ion-item>
@@ -66,22 +66,22 @@
       <ion-text>
         {{
           (unit === "metric")
-          ? weather.current.pressure_mb
-          : weather.current.pressure_in
+          ? weather.current.pressure_mb + "mb"
+          : weather.current.pressure_in + "in"
         }}
       </ion-text>
     </ion-item>
     <ion-item>
       <ion-label>Humidity:</ion-label>
-      <ion-text>{{weather.current.humidity}}</ion-text>
+      <ion-text>{{weather.current.humidity}}%</ion-text>
     </ion-item>
     <ion-item>
       <ion-label>Visibility:</ion-label>
       <ion-text>
         {{
           (unit === "metric")
-          ? weather.current.vis_km
-          : weather.current.vis_miles
+          ? weather.current.vis_km + "km"
+          : weather.current.vis_miles + "mi"
         }}
       </ion-text>
     </ion-item>
